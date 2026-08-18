@@ -86,6 +86,22 @@ Then check, at minimum: both themes, both languages, and a mobile width. Togglin
 language re-renders everything, so a broken content entry usually shows up there
 first. Watch the console — it should be silent apart from Google Fonts if offline.
 
+## Cache busting — do this on every content change
+
+`index.html` loads assets with a version query string:
+
+```html
+<link rel="stylesheet" href="assets/css/style.css?v=2">
+<script src="assets/js/content.js?v=2"></script>
+<script src="assets/js/app.js?v=2"></script>
+```
+
+**Whenever you edit `content.js`, `app.js` or `style.css`, bump every `?v=` number in
+`index.html` in the same commit.** Browsers cache these files aggressively; without a
+bump the user pushes a change and still sees the old site, which looks like a broken
+deploy. Keep all three numbers identical — one shared version is simpler to reason
+about than per-file versions.
+
 ## Deploying
 
 Push to `main`. GitHub Pages redeploys within about a minute. There is no CI.

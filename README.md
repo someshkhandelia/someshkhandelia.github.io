@@ -184,7 +184,28 @@ git push
 
 The site redeploys about a minute after the push.
 
-## 8. Preview locally before publishing
+## 8. If you push a change and the site looks unchanged
+
+That is almost always your browser, not the deploy. Hard-reload first:
+
+- Windows / Linux: **Ctrl + Shift + R**
+- Mac: **Cmd + Shift + R**
+- Phone: open the site in a private tab
+
+`index.html` loads its assets with a `?v=` version number. **Bump all three of them
+whenever you change `content.js`, `app.js` or `style.css`** — that forces every
+visitor's browser to fetch the new file instead of reusing its cached copy:
+
+```html
+<link rel="stylesheet" href="assets/css/style.css?v=3">
+<script src="assets/js/content.js?v=3"></script>
+<script src="assets/js/app.js?v=3"></script>
+```
+
+If it still looks stale after that, check the **Actions** tab on GitHub — a red mark
+there means the deploy itself failed.
+
+## 9. Preview locally before publishing
 
 ```bash
 python3 -m http.server 8000
