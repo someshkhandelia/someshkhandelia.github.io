@@ -159,7 +159,32 @@ The free tier covers 50 messages a month.
 
 ---
 
-## 7. Preview locally before publishing
+## 7. Continuing this with Claude
+
+The repo carries a `CLAUDE.md` at its root. Any Claude session opened on this folder
+reads it automatically and picks up the conventions — bilingual content pairs, the
+photo-slot naming, the German job titles, and the rule about never adding personal
+data. You should not have to re-explain the project.
+
+To work on it locally:
+
+1. Put the folder somewhere permanent (not Downloads).
+2. In the Claude desktop app, add that folder to your trusted folders so Claude can
+   read and write it.
+3. Ask for changes in plain language — "add my new job at X", "swap the accent colour",
+   "write the German for this paragraph". Almost everything lives in
+   `assets/js/content.js`.
+4. Commit and push when you're happy:
+
+```bash
+git add -A
+git commit -m "Describe the change"
+git push
+```
+
+The site redeploys about a minute after the push.
+
+## 8. Preview locally before publishing
 
 ```bash
 python3 -m http.server 8000
