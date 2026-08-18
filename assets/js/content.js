@@ -43,12 +43,12 @@ const CONTENT = {
     headline: { en: "I make messy real-world data behave.",
                 de: "Ich bringe chaotische Daten in Form." },
     intro: {
-      en: "M.Sc. in Computer Science from TU Munich. For eight years I've been walking into other people's domains — trading desks, hospitals, warehouses, helicopters — and turning their hardest data problem into software that survives production. Computer vision and machine learning are where I'm happiest, but I've shipped frontends and backends too, and I've learned that the interesting part is almost never the model.",
-      de: "M.Sc. Informatik an der TU München. Seit acht Jahren arbeite ich mich in fremde Fachgebiete ein — Handelsräume, Krankenhäuser, Logistikzentren, Hubschrauber — und mache aus dem jeweils schwierigsten Datenproblem Software, die im Produktivbetrieb standhält. Am wohlsten fühle ich mich in Computer Vision und Machine Learning, habe aber auch Frontends und Backends ausgeliefert. Gelernt habe ich dabei: das Modell ist selten der spannende Teil."
+      en: "M.Sc. in Computer Science from TU Munich. For eight years I've been walking into other people's domains — trading desks, hospitals, warehouses, helicopters — and turning their hardest data problem into software that survives production. Computer vision, machine learning and software engineering carry equal weight in that work: I've shipped models, frontends and backends alike, and the interesting part is almost never the model.",
+      de: "M.Sc. Informatik an der TU München. Seit acht Jahren arbeite ich mich in fremde Fachgebiete ein — Handelsräume, Krankenhäuser, Logistikzentren, Hubschrauber — und mache aus dem jeweils schwierigsten Datenproblem Software, die im Produktivbetrieb standhält. Computer Vision, Machine Learning und Softwareentwicklung haben dabei dasselbe Gewicht: Ich habe Modelle, Frontends und Backends ausgeliefert, und der spannende Teil ist selten das Modell."
     },
     facts: [
       { label: { en: "Based in",   de: "Wohnort" },      value: { en: "Munich, Germany", de: "München, Deutschland" } },
-      { label: { en: "Focus",      de: "Schwerpunkt" },  value: { en: "Computer Vision, ML, Backend", de: "Computer Vision, ML, Backend" } },
+      { label: { en: "Focus",      de: "Schwerpunkt" },  value: { en: "Computer Vision, ML, Software Engineering", de: "Computer Vision, ML, Softwareentwicklung" } },
       { label: { en: "Languages",  de: "Sprachen" },     value: { en: "English C2 · German B2 · Hindi", de: "Englisch C2 · Deutsch B2 · Hindi" } },
       { label: { en: "Work status",de: "Arbeitserlaubnis" }, value: { en: "Valid German work permit", de: "Gültige deutsche Arbeitserlaubnis" } }
     ],
