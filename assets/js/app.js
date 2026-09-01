@@ -45,22 +45,6 @@
     cf:   '<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="2" y="9.5" width="5.2" height="11" rx="1.2"/><rect x="9.4" y="3.5" width="5.2" height="17" rx="1.2"/><rect x="16.8" y="7" width="5.2" height="13.5" rx="1.2"/></svg>'
   };
 
-  var phBox = function (label) {
-    return '<div class="ph">' + I.img + '<span>' + esc(label) + '</span></div>';
-  };
-  var media = function (src, alt, label) {
-    return src ? '<img src="' + esc(src) + '" alt="' + esc(alt) + '" loading="lazy">' : phBox(label);
-  };
-
-  // If a photo file isn't there yet, show a placeholder naming the file to add.
-  document.addEventListener("error", function (e) {
-    var el = e.target;
-    if (!el || el.tagName !== "IMG" || !el.parentNode || el.getAttribute("data-ph")) return;
-    el.setAttribute("data-ph", "1");
-    var f = (el.getAttribute("src") || "").split("/").pop();
-    el.parentNode.innerHTML = phBox(f || t(CONTENT.ui.photoSlot));
-  }, true);
-
   /* ---------- renderers ---------- */
   function head(kicker, title, blurb) {
     return '<div class="sec-head rv">' +
@@ -127,7 +111,6 @@
           '</div>' +
           (facts ? '<div class="facts">' + facts + '</div>' : '') +
         '</div>' +
-        '<div class="portrait rv">' + media(H.portrait, C.meta.name, t(C.ui.photoSlot)) + '</div>' +
       '</div>';
   }
 
@@ -147,15 +130,14 @@
 
       return '<article class="stage rv" data-type="' + esc(s.type) + '">' +
         '<div class="stage-card">' +
-          '<div class="stage-photo">' + media(s.photo, t(s.role), t(C.ui.photoSlot)) + '</div>' +
-          '<div>' +
-            '<div class="stage-meta">' +
-              '<span class="period">' + esc(t(s.period)) + '</span>' +
-              '<span class="badge">' + esc(t(badge)) + '</span>' +
-            '</div>' +
+          '<div class="stage-side">' +
+            '<span class="period">' + esc(t(s.period)) + '</span>' +
+            '<span class="badge">' + esc(t(badge)) + '</span>' +
+            loc +
+          '</div>' +
+          '<div class="stage-main">' +
             '<h3>' + esc(t(s.role)) + '</h3>' +
             '<div class="stage-org">' + esc(s.org) + '</div>' +
-            loc +
             (t(s.story) ? '<p class="stage-story">' + esc(t(s.story)) + '</p>' : '') +
             (hl ? '<ul class="hl">' + hl + '</ul>' : '') +
             (chips ? '<div class="chips">' + chips + '</div>' : '') +
@@ -182,7 +164,6 @@
     var cards = C.projects.map(function (p) {
       var chips = (p.tags || []).map(function (x) { return '<span class="chip chip-plain">' + esc(x) + '</span>'; }).join("");
       return '<article class="card rv">' +
-        '<div class="card-img">' + media(p.photo, t(p.title), t(C.ui.photoSlot)) + '</div>' +
         '<div class="card-body">' +
           '<div class="card-top"><h3>' + esc(t(p.title)) + '</h3><span class="card-year">' + esc(p.year) + '</span></div>' +
           '<p>' + esc(t(p.summary)) + '</p>' +

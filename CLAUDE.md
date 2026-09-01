@@ -21,13 +21,15 @@ is fine and is deliberately present in `hero.facts`.
 
 ## Layout
 
+The site is deliberately text-only. There are no images, no `assets/img/`
+directory, and no photo fields in `content.js` — don't reintroduce them unless the
+user asks.
+
 ```
 index.html               Empty shell. Sections are divs; JS fills them.
 assets/js/content.js     ALL content. This is the only file to edit for copy changes.
 assets/js/app.js         Render engine. Rarely needs touching.
 assets/css/style.css     Theme tokens in :root at the top; components below.
-assets/img/journey/      Timeline photos, named NN-slug.jpg
-assets/img/projects/     Project photos
 assets/files/            CV PDF
 .nojekyll                Required — stops GitHub running Jekyll and dropping assets/
 ```
@@ -54,13 +56,6 @@ Masterarbeit*, *Praktikum*). Don't "improve" them — they're contractual.
 Append to `CONTENT.journey`, newest first. `type` is `work` | `education` |
 `milestone` (controls the badge and the dot colour). `location.maps` is a
 `https://www.google.com/maps/search/?api=1&query=<urlencoded>` link.
-
-### Photos
-
-Set `photo:` to a path even if the file doesn't exist yet. A missing image is caught
-by a capture-phase error listener in `app.js` and replaced with a placeholder tile
-displaying the expected filename — so slots are self-documenting. Keep files under
-~400 KB, ~1600px long edge.
 
 ### Sections
 
