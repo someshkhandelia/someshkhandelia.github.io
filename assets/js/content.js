@@ -18,7 +18,10 @@ const CONTENT = {
       scholar:    "",
       youtube:    "",          // paste your channel URL
       codeforces: "",          // paste your Codeforces profile URL
-      cv:         "assets/files/CV_Somesh_Khandelia.pdf"
+      cv: {                    // built by tools/build_cv.py — the button follows the page language
+        en: "assets/files/CV_Somesh_Khandelia.pdf",
+        de: "assets/files/Lebenslauf_Somesh_Khandelia.pdf"
+      }
     },
     tabTitle: {
       en: "Somesh Khandelia — Computer Vision & Software Engineering",

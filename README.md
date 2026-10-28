@@ -89,11 +89,28 @@ paste it in. Set `maps: ""` to show the location without a clickable link.
 
 ---
 
-## 4. Your CV PDF
+## 4. Your CV PDFs
 
-`assets/files/CV_Somesh_Khandelia.pdf` is a publish-safe CV generated from your own
-formal German CV. Removed, because this file is publicly downloadable and PDFs are
-indexed by search engines:
+The **Download CV** button follows the page language:
+
+| Language | File |
+|---|---|
+| English | `assets/files/CV_Somesh_Khandelia.pdf` |
+| German | `assets/files/Lebenslauf_Somesh_Khandelia.pdf` |
+
+Both are built from one file, `tools/build_cv.py`, where every line is an
+English/German pair just like `content.js`. To change your CV, edit both halves there
+and rebuild (ReportLab needs Python 3.10 or newer):
+
+```bash
+pip install reportlab
+python3 tools/build_cv.py
+```
+
+It prints the page count of each PDF. Keep both at two pages.
+
+They are publish-safe CVs generated from your own formal German CV. Removed, because
+these files are publicly downloadable and PDFs are indexed by search engines:
 
 - home address
 - date of birth and place of birth
@@ -102,8 +119,9 @@ indexed by search engines:
 - the signature block (it belongs on a signed application, not a website)
 
 Everything else — dates, German job titles, grades, degree award dates — is unchanged.
-**Read it once before you publish** and replace it with your own file if you'd rather.
-Keep the filename, or point `meta.links.cv` in `content.js` at a different one.
+**Read both once before you publish** and replace them with your own files if you'd
+rather. Keep the filenames, or point `meta.links.cv.en` / `meta.links.cv.de` in
+`content.js` at different ones.
 
 ## 5. Contact form
 

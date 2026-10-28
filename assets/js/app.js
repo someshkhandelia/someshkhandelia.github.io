@@ -85,7 +85,7 @@
   }
 
   function renderHero() {
-    var C = CONTENT, H = C.hero, L = C.meta.links;
+    var C = CONTENT, H = C.hero, L = C.meta.links, cv = t(L.cv);
     var facts = (H.facts || []).map(function (f) {
       return '<div><div class="fact-k">' + esc(t(f.label)) + '</div><div class="fact-v">' + esc(t(f.value)) + '</div></div>';
     }).join("");
@@ -105,7 +105,7 @@
           '<h1>' + esc(t(H.headline)) + '</h1>' +
           '<p class="hero-intro">' + esc(t(H.intro)) + '</p>' +
           '<div class="cta-row">' +
-            (L.cv ? '<a class="btn btn-primary" href="' + esc(L.cv) + '" download>' + I.dl + esc(t(H.ctaCv)) + '</a>' : '') +
+            (cv ? '<a class="btn btn-primary" href="' + esc(cv) + '" download>' + I.dl + esc(t(H.ctaCv)) + '</a>' : '') +
             '<a class="btn btn-ghost" href="#contact">' + I.mail + esc(t(H.ctaContact)) + '</a>' +
             (soc ? '<div class="socials">' + soc + '</div>' : '') +
           '</div>' +

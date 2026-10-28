@@ -30,7 +30,8 @@ index.html               Empty shell. Sections are divs; JS fills them.
 assets/js/content.js     ALL content. This is the only file to edit for copy changes.
 assets/js/app.js         Render engine. Rarely needs touching.
 assets/css/style.css     Theme tokens in :root at the top; components below.
-assets/files/            CV PDF
+assets/files/            CV PDFs: CV_… (English), Lebenslauf_… (German)
+tools/build_cv.py        Source for both CV PDFs. Not part of the site; run by hand.
 .nojekyll                Required — stops GitHub running Jekyll and dropping assets/
 ```
 
@@ -50,6 +51,16 @@ that register rather than translating word by word.
 German job titles in `journey[].role` come from the user's own formal German CV
 (*Wissenschaftlicher Mitarbeiter*, *Werkstudent, Teilzeit*, *Wissenschaftler,
 Masterarbeit*, *Praktikum*). Don't "improve" them — they're contractual.
+
+### CV PDFs
+
+`meta.links.cv` is an `{en, de}` pair like everything else, so the hero's download
+button serves the CV in the page language. Both PDFs come from `tools/build_cv.py`
+(ReportLab, Python 3.10+), which uses the same `{"en", "de"}` pairs. Edit both halves
+there, then run `python3 tools/build_cv.py`. It rewrites both files and prints their
+page counts, and both must stay at two pages. The English CV keeps the German
+contractual titles with an English gloss in brackets; the German CV uses the titles
+alone. The no-personal-data rule above applies to this file too.
 
 ### Adding a timeline stage
 
